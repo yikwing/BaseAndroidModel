@@ -1,4 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 25
@@ -52,5 +55,7 @@ android {
         compile 'com.jakewharton:butterknife:8.6.0'
         annotationProcessor 'com.jakewharton:butterknife-compiler:8.6.0'
         compile 'com.orhanobut:logger:2.1.1'
+
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     }
 }
