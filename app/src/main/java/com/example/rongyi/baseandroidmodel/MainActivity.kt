@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.WindowManager
-import com.orhanobut.logger.Logger
+import com.safframework.log.L
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -20,9 +20,10 @@ class MainActivity : AppCompatActivity() {
         btnClick.text = BuildConfig.HOST
         btnClick.setOnClickListener {
             val intent = Intent(this, Second::class.java)
+            L.i("AppName :" + resources.getString(R.string.app_name))
             startActivity(intent)
         }
 
-        Logger.d("123")
+
     }
 }

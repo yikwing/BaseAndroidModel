@@ -33,12 +33,16 @@ android {
             signingConfig signingConfigs.release
             buildConfigField "String", "HOST", "\"https:www.google.com\""
             buildConfigField "boolean", "SHOW_LOG", "false"
+            applicationIdSuffix ".release"  //包名
+            resValue "string", "app_name", "release"  //修改程序名
         }
 
         debug {
             signingConfig signingConfigs.release
             buildConfigField "String", "HOST", "\"https:www.baidu.com\""
             buildConfigField "boolean", "SHOW_LOG", "true"
+            applicationIdSuffix ".debug"  // 包名
+            resValue "string", "app_name", "debug"  //修改程序名
         }
 
     }
@@ -53,7 +57,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
-    compile 'com.orhanobut:logger:2.1.1'
+    compile 'com.safframework.log:saf-log:1.0.6'
 
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     implementation 'com.google.code.gson:gson:2.8.1'
