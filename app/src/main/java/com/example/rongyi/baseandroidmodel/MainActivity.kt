@@ -19,16 +19,8 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-        window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
-        val explode = TransitionInflater.from(this).inflateTransition(R.transition.fade)
-        //退出时使用
-        window.exitTransition = explode
-        //第一次进入时使用
-        window.enterTransition = explode
-        //再次进入时使用
-        window.reenterTransition = explode
-
+        //转场动画
+        transitionAnimation()
         setContentView(R.layout.activity_main)
 
 
@@ -46,6 +38,7 @@ class MainActivity : AppCompatActivity() {
             //共享元素动画
             // startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this, btnClick, "sharedView").toBundle());
 
+            //多元素共享动画
             val first: Pair<View, String> = Pair(btnClick, ViewCompat.getTransitionName(btnClick))
             val last: Pair<View, String> = Pair(btnClick2, ViewCompat.getTransitionName(btnClick2))
             val transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this, first, last)
@@ -55,5 +48,25 @@ class MainActivity : AppCompatActivity() {
         }
 
 
+    }
+
+    /**
+     *
+     * @Description: 转场动画
+     * @param:       [R.transition.fade] Transition文件夹
+     * @Data:        2017/6/29 下午5:54
+     * @author:      rongyi
+     * @return:
+     *
+     */
+    private fun transitionAnimation() {
+        window.requestFeature(Window.FEATURE_CONTENT_TRANSITIONS)
+        val explode = TransitionInflater.from(this).inflateTransition(R.transition.fade)
+        //退出时使用
+        window.exitTransition = explode
+        //第一次进入时使用
+        window.enterTransition = explode
+        //再次进入时使用
+        window.reenterTransition = explode
     }
 }
