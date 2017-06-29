@@ -1,13 +1,13 @@
 ## Android转场动画
 
 - Explode效果(爆炸效果)
-    ```
+    ``` xml
     <explode xmlns:android="http://schemas.android.com/apk/res/android"
         android:duration="300" />
     ```
 
 - Slide效果(滑动效果)
-    ```
+    ``` xml
     // slideEdge表示起始滑动的侧边位置，end表示右侧，start表示左侧，top表示顶部，bottom表示底侧
     <slide xmlns:android="http://schemas.android.com/apk/res/android"
         android:interpolator="@android:interpolator/decelerate_cubic"
@@ -25,14 +25,14 @@
     ```
 
 - Fade效果(淡化效果)
-    ```
+    ``` xml
     <fade xmlns:android="http://schemas.android.com/apk/res/android"
         android:duration="300" />
     ```
 
 - Shared Element效果(共享元素效果)  
     1.将两个Activity中需要过渡的View加上android:transitionName属性,两个View的android:transitionName属性取值要一致
-    ```
+    ``` xml
     <?xml version="1.0" encoding="utf-8"?>
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -64,11 +64,11 @@
     </RelativeLayout>
     ```
     2.调用startActivity
-    ```
+    ``` kotlin
     startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this, firstSharedView, "sharedView").toBundle());
     ```
     3.多个共享元素,需要用到Pair( )可变参数
-    ```
+    ``` kotlin
     val first: Pair<View, String> = Pair(btnClick, ViewCompat.getTransitionName(btnClick))
     val last: Pair<View, String> = Pair(btnClick2, ViewCompat.getTransitionName(btnClick2))
     val transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this, first, last)
