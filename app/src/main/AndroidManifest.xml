@@ -17,7 +17,19 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".Second" />
+
+        <activity android:name=".ThreeActivity">
+            <intent-filter>
+                <action android:name="android.kotlin.top" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data
+                    android:host="cn.yikwing.kotlin"
+                    android:port="9999"
+                    android:scheme="myappx" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

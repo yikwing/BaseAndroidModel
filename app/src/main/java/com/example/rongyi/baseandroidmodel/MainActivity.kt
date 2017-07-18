@@ -1,5 +1,6 @@
 package com.example.rongyi.baseandroidmodel
 
+import android.app.ActivityOptions
 import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
@@ -33,20 +34,8 @@ class MainActivity : AppCompatActivity() {
             L.i("AppName :" + resources.getString(R.string.app_name))
 
             //默认转场动画
-            // startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
-
-            //共享元素动画
-            // startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this, btnClick, "sharedView").toBundle());
-
-            //多元素共享动画
-            val first: Pair<View, String> = Pair(btnClick, ViewCompat.getTransitionName(btnClick))
-            val last: Pair<View, String> = Pair(btnClick2, ViewCompat.getTransitionName(btnClick2))
-            val transitionActivityOptions = ActivityOptionsCompat.makeSceneTransitionAnimation(this, first, last)
-            ActivityCompat.startActivity(this,
-                    intent, transitionActivityOptions.toBundle());
-
+             startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(this).toBundle())
         }
-
 
     }
 
